@@ -14,8 +14,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v3
       with:
-#        images: ghcr.io/${{ github.repository_owner }}/nodejs-helloworld
-        images: ghcr.io/keisz/nodejs-helloworld
+        images: ghcr.io/${{ github.repository_owner }}/nodejs-helloworld
         tags: |
           type=raw,value=latest
           type=sha
@@ -25,8 +24,7 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
-#        username: ${{ github.repository_owner }}
-        username: keisz
+        username: ${{ github.repository_owner }}
         password: ${{ secrets.CF_PAT }}
     - name: build container image
       uses: docker/build-push-action@v2
